@@ -1,14 +1,13 @@
 package com.example.myapplication
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 
 
-
-class Change_contact: Activity() {
+class Change_contact: AppCompatActivity() {
 
 
     private val list = mutableListOf<Todo>()
@@ -17,6 +16,7 @@ class Change_contact: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.change_contact)
+        title = "Изменение контакта"
         val dbHelper = DBHelper(this)
         val button = findViewById<Button>(R.id.button)
 
