@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         val  editText = findViewById<EditText>(R.id.editTextTextMultiLine)
         list.addAll(Data)
         editText.doAfterTextChanged { it ->
-            Data = dbHelper.getAll().filter { item -> item.title.contains(it.toString(), true) }
+            Data = dbHelper.getAll().filter { item ->
+                item.title.contains(it.toString(), true) || item.name.contains(it.toString(), true)
+            }
             list.clear()
             list.addAll(Data)
             adapter.notifyDataSetChanged()

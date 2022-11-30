@@ -31,7 +31,9 @@ class Card_contact: AppCompatActivity()  {
         TextPhone.text = "Телефон:   " + objects?.telephone
 
         TextPhone.setOnClickListener {
-
+            val dialIntent = Intent(Intent.ACTION_DIAL)
+            dialIntent.data = Uri.parse("tel:"+objects?.telephone)
+            startActivity(dialIntent)
 
         }
 
