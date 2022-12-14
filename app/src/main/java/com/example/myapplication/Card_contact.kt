@@ -15,20 +15,20 @@ class Card_contact: AppCompatActivity()  {
         setContentView(R.layout.card_contact)
         title = "Контактная информация"
         val dbHelper = DBHelper(this)
-        val Text = findViewById<TextView>(R.id.textView4)
-        val TextName = findViewById<TextView>(R.id.textView2)
-        val TextDate = findViewById<TextView>(R.id.textView5)
-        val TextPhone = findViewById<TextView>(R.id.textView6)
+        val TextSurname = findViewById<TextView>(R.id.textViewSurname)
+        val TextName = findViewById<TextView>(R.id.textViewName)
+        val TextDate = findViewById<TextView>(R.id.textViewBirthday)
+        val TextPhone = findViewById<TextView>(R.id.textViewPhone)
         val button = findViewById<Button>(R.id.button)
         val buttonDrop = findViewById<Button>(R.id.button2)
         val buttonChange = findViewById<Button>(R.id.button3)
         val id = intent.getLongExtra("Id",0)
         val objects = dbHelper.getById(id)
 
-        Text.text = "Фамилия:  " + objects?.title
-        TextName.text = "Имя:      " + objects?.name
-        TextDate.text = "День рождения: " + objects?.date
-        TextPhone.text = "Телефон:   " + objects?.telephone
+        TextSurname.text = objects?.title
+        TextName.text = objects?.name
+        TextDate.text = objects?.date
+        TextPhone.text = objects?.telephone
 
         TextPhone.setOnClickListener {
             val dialIntent = Intent(Intent.ACTION_DIAL)

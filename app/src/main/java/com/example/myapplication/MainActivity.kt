@@ -22,11 +22,12 @@ class MainActivity : AppCompatActivity() {
         val  editText = findViewById<EditText>(R.id.editTextTextMultiLine)
         list.addAll(Data)
         editText.doAfterTextChanged { it ->
-            Data = dbHelper.getAll().filter { item ->
+            var Data2 = Data.filter { item ->
                 item.title.contains(it.toString(), true) || item.name.contains(it.toString(), true)
+
             }
             list.clear()
-            list.addAll(Data)
+            list.addAll(Data2)
             adapter.notifyDataSetChanged()
         }
         adapter = RecyclerAdapter(list) {
